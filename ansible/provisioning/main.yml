@@ -11,3 +11,16 @@
 
   vars_files:
     - vars/main.yml
+
+  tasks:
+    - name: Create a database
+      mysql_db:
+        name: drupal
+        state: present
+
+    - name: Add the database user
+      mysql_user:
+        name: drupal
+        password: drupal
+        priv: '*.*:ALL'
+        state: present
