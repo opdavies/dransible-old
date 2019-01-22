@@ -8,6 +8,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.name = 'dransible'
+    vb.memory = 1024
+    vb.cpus = 2
   end
 
   # Set the name of the VM. See: http://stackoverflow.com/a/17864388/100134
