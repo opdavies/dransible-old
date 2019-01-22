@@ -1,4 +1,6 @@
 ---
+- src: ansistrano.deploy
+- src: ansistrano.rollback
 - src: geerlingguy.apache
 - src: geerlingguy.composer
 - src: geerlingguy.mysql
