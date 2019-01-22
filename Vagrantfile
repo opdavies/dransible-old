@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "ansible/provisioning/main.yml"
     ansible.inventory_path = "ansible/hosts.ini"
     ansible.become = true
+    ansible.ask_vault_pass = true
   end
 
 end

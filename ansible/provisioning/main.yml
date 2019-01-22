@@ -2,16 +2,17 @@
 - hosts: dransible
   become: true
 
-  roles:
-    - geerlingguy.apache
-    - geerlingguy.mysql
-    - geerlingguy.php
-    - geerlingguy.php-mysql
-    - geerlingguy.composer
+  # roles:
+  #   - geerlingguy.apache
+  #   - geerlingguy.mysql
+  #   - geerlingguy.php
+  #   - geerlingguy.php-mysql
+  #   - geerlingguy.composer
 
   vars_files:
-    - vars/main.yml
-    - ../vars/main.yml
+    - ../vars/vault.yml
+    - ../vars/vars.yml
+    - vars/vars.yml
 
   tasks:
     - name: Create a database
