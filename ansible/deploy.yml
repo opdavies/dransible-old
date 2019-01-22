@@ -2,21 +2,21 @@
 - hosts: dransible
   become: true
 
+  roles:
+    - ansistrano.deploy
+
   vars_files:
     - vars/vars.yml
 
-  tasks:
-    - name: Creating project directory
-      file:
-        path: "{{ app_project_root }}"
-        state: directory
+  vars:
+    ansistrano_deploy_via: "rsync"
+    ansistrano_deploy_from: "{{ playbook_dir }}/../"
+    ansistrano_deploy_to: "{{ app_project_root }}"
+    ansistrano_current_dir: current
+    ansistrano_keep_releases: 5
 
-    - name: Uploading application
-      synchronize:
-        src: ../../
-        dest: "{{ app_project_root }}"
-
-    - name: Installing Composer dependencies
-      composer:
-        command: install
-        working_dir: "{{ app_project_root }}"
+  # tasks:
+    # - name: Installing Composer dependencies
+    #   composer:
+    #     command: install
+    #     working_dir: "{{ app_project_root }}"
