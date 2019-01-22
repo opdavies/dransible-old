@@ -11,16 +11,17 @@
 
   vars_files:
     - vars/main.yml
+    - ../vars/main.yml
 
   tasks:
     - name: Create a database
       mysql_db:
-        name: drupal
+        name: '{{ app_db_name }}'
         state: present
 
     - name: Add the database user
       mysql_user:
-        name: drupal
-        password: drupal
+        name: '{{ app_db_user }}'
+        password: '{{ app_db_password }}'
         priv: '*.*:ALL'
         state: present
