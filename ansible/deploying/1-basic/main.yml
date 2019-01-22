@@ -2,18 +2,21 @@
 - hosts: dransible
   become: true
 
+  vars_files:
+    - ../../vars/vars.yml
+
   tasks:
     - name: Creating project directory
       file:
-        path: /var/www/app
+        path: "{{ app_project_root }}"
         state: directory
 
     - name: Uploading application
       synchronize:
         src: ../../../../
-        dest: /var/www/app
+        dest: "{{ app_project_root }}"
 
     - name: Installing Composer dependencies
       composer:
         command: install
-        working_dir: /var/www/app
+        working_dir: "{{ app_project_root }}"

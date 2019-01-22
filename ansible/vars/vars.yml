@@ -1,4 +1,7 @@
 ---
+app_project_root: /var/www/app
+app_project_docroot: "{{ app_project_root }}/web"
+
 app_db_name: "{{ vault_app_db_name }}"
 app_db_user: "{{ vault_app_db_user }}"
 app_db_password: "{{ vault_app_db_password }}"
