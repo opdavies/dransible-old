@@ -10,8 +10,7 @@
     - geerlingguy.composer
 
   vars_files:
-    - ../vars/vault.yml
-    - ../vars/vars.yml
+    - vars/vault.yml
     - vars/vars.yml
 
   tasks:

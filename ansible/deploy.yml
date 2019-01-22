@@ -3,7 +3,7 @@
   become: true
 
   vars_files:
-    - ../../vars/vars.yml
+    - vars/vars.yml
 
   tasks:
     - name: Creating project directory
@@ -13,7 +13,7 @@
 
     - name: Uploading application
       synchronize:
-        src: ../../../../
+        src: ../../
         dest: "{{ app_project_root }}"
 
     - name: Installing Composer dependencies
