@@ -15,3 +15,7 @@
     ansistrano_current_dir: current
     ansistrano_keep_releases: 5
     ansistrano_before_symlink_tasks_file: "{{ playbook_dir }}/deploy/before-symlink.yml"
+    ansistrano_shared_paths:
+      - "{{ app_project_subdir }}/sites/default/files"
+    ansistrano_shared_files:
+      - "{{ app_project_subdir }}/sites/default/settings.php"

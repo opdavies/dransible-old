@@ -21,7 +21,8 @@ php_packages:
   - php{{ php_default_version_debian }}-xml
 
 app_project_root: /var/www/app
-app_project_docroot: "{{ app_project_root }}/{{ ansistrano_current_dir }}/web"
+app_project_subdir: web
+app_project_docroot: "{{ app_project_root }}/{{ ansistrano_current_dir }}/{{ app_project_subdir }}"
 
 app_db_name: "{{ vault_app_db_name }}"
 app_db_user: "{{ vault_app_db_user }}"
