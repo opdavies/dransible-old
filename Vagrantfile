@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "ansible" do |ansible|
     ansible.compatibility_mode = "2.0"
-    ansible.playbook = "ansible/provision.yml"
+    ansible.playbook = "ansible/provisioning/main.yml"
     ansible.inventory_path = "ansible/hosts.ini"
     ansible.become = true
   end

@@ -1,0 +1,4 @@
+---
+apache_vhosts:
+  - servername: dransible
+    documentroot: "/var/www/app/web"
