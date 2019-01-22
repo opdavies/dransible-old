@@ -1,0 +1,19 @@
+---
+- hosts: dransible
+  become: true
+
+  tasks:
+    - name: Creating project directory
+      file:
+        path: /var/www/app
+        state: directory
+
+    - name: Uploading application
+      synchronize:
+        src: ../../../../
+        dest: /var/www/app
+
+    - name: Installing Composer dependencies
+      composer:
+        command: install
+        working_dir: /var/www/app
