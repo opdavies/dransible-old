@@ -20,6 +20,8 @@ php_packages:
   - php{{ php_default_version_debian }}-opcache
   - php{{ php_default_version_debian }}-xml
 
+ansistrano_current_dir: current
+
 app_project_root: /var/www/app
 app_project_subdir: web
 app_project_docroot: "{{ app_project_root }}/{{ ansistrano_current_dir }}/{{ app_project_subdir }}"
