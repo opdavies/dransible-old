@@ -1,5 +1,3 @@
 ---
-- name: Install Composer dependencies
-  composer:
-    command: install
-    working_dir: '{{ ansistrano_release_path.stdout }}'
+- name: Run database updates
+  command: '{{ release_drush_path }} --root {{ release_web_path }} updatedb'
