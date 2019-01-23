@@ -13,7 +13,7 @@
     ansistrano_deploy_from: "{{ playbook_dir }}/../"
     ansistrano_deploy_to: "{{ app_project_root }}"
     ansistrano_keep_releases: 5
-    ansistrano_before_symlink_tasks_file: "{{ playbook_dir }}/deploy/before-symlink.yml"
+    ansistrano_after_symlink_shared_tasks_file: "{{ playbook_dir }}/deploy/after-symlink-shared.yml"
     ansistrano_shared_paths:
       - "{{ app_project_subdir }}/sites/default/files"
     ansistrano_shared_files:
