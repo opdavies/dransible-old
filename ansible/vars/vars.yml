@@ -27,5 +27,23 @@ app_project_subdir: web
 app_project_docroot: "{{ app_project_root }}/{{ ansistrano_current_dir }}/{{ app_project_subdir }}"
 
 app_db_name: "{{ vault_app_db_name }}"
-app_db_user: "{{ vault_app_db_user }}"
 app_db_password: "{{ vault_app_db_password }}"
+app_db_user: "{{ vault_app_db_user }}"
+app_hash_salt: "{{ vault_app_hash_salt }}"
+
+drupal_settings:
+  - drupal_root: '{{ app_project_docroot }}'
+    sites:
+      - name: default
+        settings:
+          databases:
+            default:
+              default:
+                driver: mysql
+                host: localhost
+                database: '{{ app_db_name }}'
+                username: '{{ app_db_user }}'
+                password: '{{ app_db_password }}'
+          hash_salt: '{{ app_hash_salt }}'
+          config_directories:
+            sync: ../config/sync
