@@ -7,6 +7,7 @@
     - drupal-settings
 
   vars_files:
+    - vars/vault.yml
     - vars/vars.yml
 
   vars:
