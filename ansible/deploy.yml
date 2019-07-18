@@ -4,6 +4,7 @@
 
   roles:
     - ansistrano.deploy
+    - drupal-settings
 
   vars_files:
     - vars/vars.yml
