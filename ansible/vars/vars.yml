@@ -1,7 +1,7 @@
 ---
 apache_vhosts:
   - servername: dransible
-    documentroot: "{{ app_project_docroot }}"
+    documentroot: "{{ project_docroot }}"
 
 php_packages:
   - libapache2-mod-php{{ php_default_version_debian }}
@@ -22,14 +22,14 @@ php_packages:
 
 ansistrano_current_dir: current
 
-app_project_root: /var/www/app
-app_project_subdir: web
-app_project_docroot: "{{ app_project_root }}/{{ ansistrano_current_dir }}/{{ app_project_subdir }}"
+project_deploy_dir: /var/www/app
+project_subdir: web
+project_docroot: "{{ project_deploy_dir }}/{{ ansistrano_current_dir }}/{{ project_subdir }}"
 
-app_db_name: "{{ vault_app_db_name }}"
-app_db_password: "{{ vault_app_db_password }}"
-app_db_user: "{{ vault_app_db_user }}"
-app_hash_salt: "{{ vault_app_hash_salt }}"
+database_name: "{{ vault_database_name }}"
+database_password: "{{ vault_database_password }}"
+database_user: "{{ vault_database_user }}"
+hash_salt: "{{ vault_hash_salt }}"
 
 drupal_settings:
   - drupal_root: /tmp/app
@@ -41,9 +41,9 @@ drupal_settings:
               default:
                 driver: mysql
                 host: localhost
-                database: '{{ app_db_name }}'
-                username: '{{ app_db_user }}'
-                password: '{{ app_db_password }}'
-          hash_salt: '{{ app_hash_salt }}'
+                database: '{{ database_name }}'
+                username: '{{ database_user }}'
+                password: '{{ database_password }}'
+          hash_salt: '{{ hash_salt }}'
           config_directories:
             sync: ../config/sync

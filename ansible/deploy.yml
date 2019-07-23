@@ -11,15 +11,15 @@
     - vars/vars.yml
 
   vars:
+    release_drupal_path: "{{ ansistrano_release_path.stdout }}/web"
+    release_drush_path: "{{ ansistrano_release_path.stdout }}/vendor/bin/drush"
+
     ansistrano_deploy_via: "rsync"
     ansistrano_deploy_from: "{{ playbook_dir }}/../"
-    ansistrano_deploy_to: "{{ app_project_root }}"
+    ansistrano_deploy_to: "{{ project_deploy_dir }}"
     ansistrano_keep_releases: 5
     ansistrano_after_symlink_shared_tasks_file: "{{ playbook_dir }}/deploy/after-symlink-shared.yml"
     ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/deploy/after-symlink.yml"
     ansistrano_after_update_code_tasks_file: "{{ playbook_dir }}/deploy/after-update-code.yml"
     ansistrano_shared_paths:
-      - "{{ app_project_subdir }}/sites/default/files"
-
-    release_web_path: "{{ ansistrano_release_path.stdout }}/web"
-    release_drush_path: "{{ ansistrano_release_path.stdout }}/vendor/bin/drush"
+      - "{{ project_subdir }}/sites/default/files"

@@ -9,4 +9,4 @@
     - vars/vars.yml
 
   vars:
-    ansistrano_deploy_to: "{{ app_project_root }}"
+    ansistrano_deploy_to: "{{ project_deploy_dir }}"

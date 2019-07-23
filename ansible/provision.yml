@@ -16,12 +16,12 @@
   tasks:
     - name: Create a database
       mysql_db:
-        name: '{{ app_db_name }}'
+        name: '{{ database_name }}'
         state: present
 
     - name: Add the database user
       mysql_user:
-        name: '{{ app_db_user }}'
-        password: '{{ app_db_password }}'
+        name: '{{ database_user }}'
+        password: '{{ database_password }}'
         priv: '*.*:ALL'
         state: present
