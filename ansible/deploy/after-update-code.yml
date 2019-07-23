@@ -1,4 +1,21 @@
 ---
+- name: Remove settings.php
+  file:
+    path: '{{ ansistrano_release_path.stdout }}/web/sites/{{ item.1.name|default("default")}}/settings.php'
+    state: absent
+  with_subelements:
+    - '{{ drupal_settings }}'
+    - sites
+
+- name: Link settings.php
+  file:
+    src: '/tmp/app/sites/{{ item.1.name|default("default")}}/settings.php'
+    dest: '{{ ansistrano_release_path.stdout }}/web/sites/{{ item.1.name|default("default")}}/settings.php'
+    state: link
+  with_subelements:
+    - '{{ drupal_settings }}'
+    - sites
+
 - name: Install Composer dependencies
   composer:
     command: install

@@ -3,8 +3,8 @@
   become: true
 
   roles:
-    - ansistrano.deploy
     - drupal-settings
+    - ansistrano.deploy
 
   vars_files:
     - vars/vault.yml

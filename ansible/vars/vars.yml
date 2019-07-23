@@ -32,7 +32,7 @@ app_db_user: "{{ vault_app_db_user }}"
 app_hash_salt: "{{ vault_app_hash_salt }}"
 
 drupal_settings:
-  - drupal_root: '{{ app_project_docroot }}'
+  - drupal_root: /tmp/app
     sites:
       - name: default
         settings:
