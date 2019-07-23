@@ -1,4 +1,11 @@
 ---
+- name: Fix files directory permissions
+  become: true
+  file:
+    path: '{{ app_project_root }}/shared/web/sites/default/files'
+    state: directory
+    mode: 0775
+    recurse: true
 
 - name: Install Drupal
   command: '{{ release_drush_path }} --root {{ release_web_path }} site-install -y --account-pass=admin123 --site-name="PHP South Wales"'
