@@ -1,3 +1,4 @@
 ---
-- name: Run database updates
-  command: '{{ release_drush_path }} --root {{ release_web_path }} updatedb'
+
+- name: Install Drupal
+  command: '{{ release_drush_path }} --root {{ release_web_path }} site-install -y --account-pass=admin123 --site-name="PHP South Wales"'
