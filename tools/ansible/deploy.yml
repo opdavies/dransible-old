@@ -15,7 +15,7 @@
     release_drush_path: "{{ ansistrano_release_path.stdout }}/vendor/bin/drush"
 
     ansistrano_deploy_via: "rsync"
-    ansistrano_deploy_from: "{{ playbook_dir }}/../"
+    ansistrano_deploy_from: "{{ playbook_dir }}/../../"
     ansistrano_deploy_to: "{{ project_deploy_dir }}"
     ansistrano_keep_releases: 5
     ansistrano_after_symlink_shared_tasks_file: "{{ playbook_dir }}/deploy/after-symlink-shared.yml"

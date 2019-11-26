@@ -18,8 +18,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "ansible" do |ansible|
     ansible.compatibility_mode = "2.0"
-    ansible.playbook = "ansible/provision.yml"
-    ansible.inventory_path = "ansible/hosts.yml"
+    ansible.playbook = "tools/ansible/provision.yml"
+    ansible.inventory_path = "tools/ansible/hosts.yml"
     ansible.become = true
     ansible.ask_vault_pass = true
   end
