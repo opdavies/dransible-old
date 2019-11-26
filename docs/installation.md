@@ -6,10 +6,12 @@
 
     ![A browser showing a 'Not Found' error](images/before-deploy.png)
 
-1. Run the deploy playbook to deploy the application code to the virtual machine. You will be prompted for the Vault password, which is `dransible`.
+1. Run the deploy playbook to deploy the application code to the virtual machine. The Vault password, which is `dransible`, is stored in `tools/ansible/vault-password.txt` as this is an example project.
 
     ```
-    ansible-playbook tools/ansible/deploy.yml -i tools/ansible/hosts.yml --ask-vault-pass
+    ansible-playbook tools/ansible/deploy.yml \
+      -i tools/ansible/hosts.yml \
+      --vault-password-file=tools/ansible/vault-password.txt
     ```
 
 1. Load `http://dransible` in a browser, and you should see a Drupal 8 website.
